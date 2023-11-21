@@ -112,4 +112,3 @@ if(p.gamePad){window.addEventListener('gamepadconnected',function(e){
         };update();
     });
 }
-
