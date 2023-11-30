@@ -89,16 +89,13 @@ function move_slot(s) {
 //     }
 }
 function check_slots(){
-    let a = document.createElement('a')
-    a.target='_blank';
-    a.href='https://www.google.com'
-    var audio = new Audio('congrats.mp3')
+    var audio = new Audio('Audio/basah.m4a')
     var check=1;
     for(var y=0;y<=p.grid[1];y++){
         for(var x=0;x<=p.grid[0];x++){
             if(m[y][x]==0||check==m[y][x]){check++}else{break;}
         }
-    }if(check==o){audio.play(), setTimeout(()=>{ window.confirm('Congrats! Anda telah menyelesaikan puzzlenya! :D'),a.click()},((p.time)?p.time*1000:0));} //  alert yang muncul saat game berakhir
+    }if(check==o){audio.play(), setTimeout(()=>{alert('Congrats! Anda telah menyelesaikan puzzlenya! :D')},((p.time)?p.time*1000:0));} //  alert yang muncul saat game berakhir
 }
 function fifteen_resize(){
     var rect=f.parentNode.getBoundingClientRect();
