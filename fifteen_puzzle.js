@@ -1,5 +1,11 @@
 var p=setup.puzzle_fifteen,freeslot=[],size=[],m=[],o,f=document.getElementById("fifteen");
 ceation_slots();
+
+function hideButton()
+{
+document.getElementById("startButton").style.visibility = 'visible';
+document.getElementById("diffButton").style.visibility = 'visible';
+}
 function ceation_slots(){
     size=[p.size[0]/(p.grid[0]+1),p.size[1]/(p.grid[1]+1)]
     var c=(p.emptySlot)?p.emptySlot:(p.grid[1]+1)*(p.grid[0]+1);
@@ -73,14 +79,26 @@ function move_slot(s) {
             }if(!s){break;}
         }if(!s){break;}
     }check_slots();
+// }
+// function hidden() {
+//     var x = document.getElementById("startButton");
+//     if (x.style.display === "none") {
+//       x.style.display = "block";
+//     } else {
+//       x.style.display = "none";
+//     }
 }
 function check_slots(){
+    let a = document.createElement('a')
+    a.target='_blank';
+    a.href='https://www.google.com'
+    var audio = new Audio('congrats.mp3')
     var check=1;
     for(var y=0;y<=p.grid[1];y++){
         for(var x=0;x<=p.grid[0];x++){
             if(m[y][x]==0||check==m[y][x]){check++}else{break;}
         }
-    }if(check==o){setTimeout(()=>{ alert('Congrats! Anda telah menyelesaikan puzzlenya! :D') },((p.time)?p.time*1000:0));} //  alert yang muncul saat game berakhir
+    }if(check==o){audio.play(), setTimeout(()=>{ window.confirm('Congrats! Anda telah menyelesaikan puzzlenya! :D'),a.click()},((p.time)?p.time*1000:0));} //  alert yang muncul saat game berakhir
 }
 function fifteen_resize(){
     var rect=f.parentNode.getBoundingClientRect();
