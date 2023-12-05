@@ -23,7 +23,8 @@ function ceation_slots(){
                 e.setAttribute("onclick","move_slot("+o+")");
                 e.className="slot";
                 if(p.number){e.innerHTML=o}
-                e.style="background-image:url("+p.art.url+");background-size:"+((p.art.ratio)? p.size[0]+"px auto":"auto "+p.size[1]+"px")+";background-position:-"+(size[0]*x)+"px -"+(size[1]*y)+"px ;width:"+size[0]+"px;height:"+size[1]+"px;top:"+(size[1]*y)+"px;left:"+(size[0]*x)+"px;position:absolute;"+((p.style)?p.style:"")
+                e.style="background-image:url("+p.art.url+");background-size:"+((p.art.ratio)? p.size[0]+"px auto":"auto "+p.size[1]+"px")+";background-position:-"+(size[0]*x)+"px -"+(size[1]*y)+
+                "px ;width:"+size[0]+"px;height:"+size[1]+"px;top:"+(size[1]*y)+"px;left:"+(size[0]*x)+"px;position:absolute;"+((p.style)?p.style:"")
                 if(p.time){e.style.transitionDuration=p.time+"s"}
                 f.appendChild(e);o++;
             }else{m[y][x]=0;freeslot=[y,x];o++;}
@@ -79,14 +80,6 @@ function move_slot(s) {
             }if(!s){break;}
         }if(!s){break;}
     }check_slots();
-// }
-// function hidden() {
-//     var x = document.getElementById("startButton");
-//     if (x.style.display === "none") {
-//       x.style.display = "block";
-//     } else {
-//       x.style.display = "none";
-//     }
 }
 function check_slots(){
     var audio = new Audio('Audio/basah.m4a')
