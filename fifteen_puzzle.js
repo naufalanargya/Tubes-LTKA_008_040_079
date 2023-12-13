@@ -82,7 +82,7 @@ function move_slot(s) {
     }check_slots();
 }
 function check_slots(){
-    var audio = new Audio('Audio/basah.m4a')
+    var audio = new Audio('Audio/congrats.mp3')
     var check=1;
     for(var y=0;y<=p.grid[1];y++){
         for(var x=0;x<=p.grid[0];x++){

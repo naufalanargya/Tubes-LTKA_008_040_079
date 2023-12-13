@@ -193,28 +193,6 @@ function fifteen_update(){
     f.innerHTML="";
     ceation_slots();
 }
-function fifteen_build(){
-    var reader=new FileReader();
-    if(file){reader.readAsDataURL(file);}else{alert('Please upload a file with a picture')}
-    reader.onload=function(){setup.puzzle_fifteen.art.url=reader.result;gen_file();}
-    reader.onerror=function(error){alert('Error: '+error);}
-    function gen_file(){
-        var url="fifteen_puzzle.js";
-        var xmlhttp=new XMLHttpRequest();
-        xmlhttp.onreadystatechange=function(){
-            if(this.readyState==4&&this.status==200){
-                var html="data:text/json;charset=utf-8,"+encodeURIComponent("<!DOCTYPE html>\n<html>\n<head>\n<style>\n body{height:97vh;padding:0;display:grid;align-content:center;justify-content:center;}\n</style>\n</head>\n<body>\n<div id='fifteen'></div>\n<script>\n"+this.responseText.replace("setup.puzzle_fifteen",JSON.stringify(setup.puzzle_fifteen,null,'\t'))+"\n<\/script>\n<\/body>\n<\/html>");
-                var a=document.getElementById('download');
-                a.setAttribute("href", html );
-                a.setAttribute("download","index.html");
-                a.click();
-            }
-        };
-        xmlhttp.open("GET",url,true);
-        xmlhttp.send();
-        xmlhttp.onerror=function(){if(this.status==0){alert('runetime not loaded');}}
-    }
-}
 var drop = {
     init:function(){
         if (window.File&&window.FileReader&&window.FileList&&window.Blob) {
